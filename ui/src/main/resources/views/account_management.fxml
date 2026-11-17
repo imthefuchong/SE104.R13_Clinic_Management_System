@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fillWidth="true" spacing="14.0"
+      styleClass="card-pane"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.AccountController">
+    <padding><Insets bottom="16.0" left="16.0" right="16.0" top="16.0" /></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="12.0">
+        <VBox spacing="2.0">
+            <Label styleClass="screen-title" text="Quản lý tài khoản" />
+            <Label fx:id="lblTotal" styleClass="screen-subtitle" text="Tổng số tài khoản: 0" />
+        </VBox>
+        <Region HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <VBox spacing="4.0">
+            <Label style="-fx-font-weight: bold;" text="Tên đăng nhập hoặc nhân viên" />
+            <TextField fx:id="tfSearch" prefWidth="250.0"
+                       promptText="Nhập tên đăng nhập hoặc nhân viên..." />
+        </VBox>
+        <VBox spacing="4.0">
+            <Label style="-fx-font-weight: bold;" text="Vai trò" />
+            <ComboBox fx:id="cbRoleFilter" prefWidth="150.0" />
+        </VBox>
+        <VBox spacing="4.0">
+            <Label style="-fx-font-weight: bold;" text="Trạng thái" />
+            <ComboBox fx:id="cbStatusFilter" prefWidth="155.0" />
+        </VBox>
+        <Region HBox.hgrow="ALWAYS" />
+        <VBox spacing="7.0">
+            <Button onAction="#handleCreate" styleClass="btn-primary"
+                    text="＋ Tạo tài khoản" />
+            <Button fx:id="btnResetPassword" onAction="#handleResetPassword"
+                    styleClass="btn-secondary" text="♙ Đặt lại mật khẩu" />
+        </VBox>
+        <VBox spacing="7.0">
+            <Button fx:id="btnEdit" onAction="#handleEdit"
+                    styleClass="btn-secondary" text="✎ Chỉnh sửa" />
+            <Button fx:id="btnToggleStatus" onAction="#handleToggleStatus"
+                    styleClass="btn-secondary" text="🔒 Khóa/Mở khóa" />
+        </VBox>
+    </HBox>
+
+    <Label fx:id="lblDataNote" style="-fx-text-fill: #64748B; -fx-font-size: 11px;" />
+
+    <TableView fx:id="tvAccounts" editable="false" minHeight="300.0" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colUsername" prefWidth="150.0" text="Tên đăng nhập" />
+            <TableColumn fx:id="colEmployeeId" prefWidth="130.0" text="Mã nhân viên" />
+            <TableColumn fx:id="colEmployeeName" prefWidth="200.0" text="Họ tên" />
+            <TableColumn fx:id="colRole" prefWidth="150.0" text="Vai trò" />
+            <TableColumn fx:id="colStatus" prefWidth="165.0" text="Trạng thái" />
+            <TableColumn fx:id="colAction" prefWidth="110.0" sortable="false" text="" />
+        </columns>
+        <placeholder>
+            <Label style="-fx-text-fill: #94A3B8;" text="Chưa có tài khoản" />
+        </placeholder>
+    </TableView>
+</VBox>

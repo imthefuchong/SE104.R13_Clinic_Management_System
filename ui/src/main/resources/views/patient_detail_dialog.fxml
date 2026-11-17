@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="620.0" prefWidth="800.0" spacing="16.0"
+      style="-fx-background-color: #FFFFFF; -fx-padding: 24;"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.controllers.PatientDetailDialogController">
+
+    <!-- Tiêu đề form bệnh nhân chuẩn PDF -->
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1E293B;"
+           text="Chi tiết bệnh nhân" />
+
+    <!-- Form 2 cột -->
+    <GridPane hgap="16.0" vgap="12.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="100.0" prefWidth="110.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints halignment="RIGHT" minWidth="100.0" prefWidth="110.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+
+        <!-- Hàng 0: Họ và tên & Mã bệnh nhân -->
+        <Label text="Họ và tên:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="tfName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Mã bệnh nhân:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <TextField fx:id="tfId" editable="false" style="-fx-background-color: #F8FAFC;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+        <!-- Hàng 1: Ngày sinh & Giới tính -->
+        <Label text="Ngày sinh:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <DatePicker fx:id="dpBirth" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Giới tính:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <HBox spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <ToggleButton fx:id="btnMale" prefWidth="75.0" styleClass="btn-secondary" text="Nam" />
+            <ToggleButton fx:id="btnFemale" prefWidth="75.0" styleClass="btn-secondary" text="Nữ" />
+        </HBox>
+
+        <!-- Hàng 2: Số điện thoại & Nút Lưu -->
+        <Label text="Số điện thoại:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="tfPhone" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="btnSave" onAction="#save" prefWidth="80.0" styleClass="btn-primary" text="Lưu" />
+        </HBox>
+
+        <Label text="Địa chỉ:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="tfAddress" promptText="Nhập địa chỉ"
+                   GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+    </GridPane>
+
+    <!-- Bảng lịch sử khám bệnh -->
+    <TableView fx:id="tvKhamBenh" minHeight="200.0" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateCol" prefWidth="130.0" text="Ngày khám" />
+            <TableColumn fx:id="reasonCol" prefWidth="180.0" text="Lý do khám" />
+            <TableColumn fx:id="resultCol" prefWidth="200.0" text="Kết quả khám" />
+            <TableColumn fx:id="costCol" prefWidth="120.0" text="Tổng chi phí" />
+            <TableColumn fx:id="doctorCol" prefWidth="140.0" text="Bác sĩ" />
+        </columns>
+        <placeholder>
+            <Label style="-fx-text-fill: #94A3B8;" text="Chưa có lịch sử khám bệnh" />
+        </placeholder>
+    </TableView>
+
+</VBox>

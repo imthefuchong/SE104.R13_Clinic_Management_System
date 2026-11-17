@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fillWidth="true" spacing="14.0"
+      styleClass="card-pane"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.ClinicRulesController">
+    <padding><Insets bottom="18.0" left="18.0" right="18.0" top="18.0" /></padding>
+
+    <Label styleClass="screen-title" text="Quy định phòng mạch" />
+
+    <HBox spacing="8.0">
+        <Button fx:id="btnParameters" onAction="#showParameters" text="⚙  Tham số" />
+        <Button fx:id="btnDiseases" onAction="#showDiseases" text="☤  Loại bệnh" />
+        <Button fx:id="btnUnits" onAction="#showUnits" text="⚖  Đơn vị tính" />
+        <Button fx:id="btnUsage" onAction="#showUsage" text="▤  Cách dùng" />
+    </HBox>
+
+    <StackPane VBox.vgrow="ALWAYS">
+        <VBox fx:id="parametersPane" spacing="18.0"
+              style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 24;">
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+                <Label prefWidth="250.0" text="Số bệnh nhân tối đa mỗi ngày:" />
+                <Spinner fx:id="spMaxPatients" editable="true" prefWidth="180.0" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+                <Label prefWidth="250.0" text="Tiền khám:" />
+                <Spinner fx:id="spExamFee" editable="true" prefWidth="180.0" />
+            </HBox>
+            <Label fx:id="lblParametersNote"
+                   style="-fx-text-fill: #2563EB; -fx-font-size: 12px; -fx-font-style: italic;"
+                   text="Quy định mới áp dụng cho nghiệp vụ phát sinh sau khi lưu." />
+            <Region VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Button onAction="#handleSaveParameters" styleClass="btn-primary" text="▣  Lưu thay đổi" />
+                <Button onAction="#handleCancelParameters" styleClass="btn-secondary" text="↺  Hủy" />
+            </HBox>
+        </VBox>
+
+        <VBox fx:id="catalogPane" managed="false" spacing="12.0"
+              style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 18;"
+              visible="false">
+            <HBox alignment="CENTER_LEFT" spacing="9.0">
+                <Label fx:id="lblCatalogTitle"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"
+                       text="Danh mục" />
+                <Region HBox.hgrow="ALWAYS" />
+                <TextField fx:id="tfSearch" prefWidth="220.0" promptText="Nhập mã hoặc tên..." />
+                <Button onAction="#handleAddEntry" styleClass="btn-primary" text="＋ Thêm" />
+                <Button fx:id="btnEditEntry" onAction="#handleEditEntry"
+                        styleClass="btn-secondary" text="✎ Sửa" />
+                <Button fx:id="btnDeleteEntry" onAction="#handleDeleteEntry"
+                        styleClass="btn-secondary" text="▣ Xóa" />
+            </HBox>
+
+            <TableView fx:id="tvCatalog" minHeight="220.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colCode" prefWidth="180.0" text="Mã" />
+                    <TableColumn fx:id="colName" prefWidth="250.0" text="Tên" />
+                    <TableColumn fx:id="colDetails" prefWidth="440.0" text="Mô tả" />
+                </columns>
+                <placeholder>
+                    <Label style="-fx-text-fill: #94A3B8;" text="Chưa có dữ liệu trong danh mục" />
+                </placeholder>
+            </TableView>
+
+            <VBox spacing="9.0"
+                  style="-fx-background-color: #F8FAFC; -fx-background-radius: 10; -fx-padding: 14;">
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label fx:id="lblCode" prefWidth="110.0" text="Mã" />
+                    <TextField fx:id="tfCode" prefWidth="180.0" promptText="Nhập mã" />
+                    <Label fx:id="lblName" prefWidth="100.0" text="Tên" />
+                    <TextField fx:id="tfName" HBox.hgrow="ALWAYS" promptText="Nhập tên" />
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label fx:id="lblDetails" prefWidth="110.0" text="Mô tả" />
+                    <TextField fx:id="tfDetails" HBox.hgrow="ALWAYS" promptText="Nhập mô tả" />
+                    <Button fx:id="btnSaveEntry" onAction="#handleSaveEntry"
+                            styleClass="btn-primary" text="Lưu" />
+                    <Button onAction="#handleCancelEntry" styleClass="btn-secondary" text="Hủy" />
+                </HBox>
+                <Label fx:id="lblCatalogNote"
+                       style="-fx-text-fill: #2563EB; -fx-font-size: 11px; -fx-font-style: italic;"
+                       text="Quy định danh mục" />
+            </VBox>
+        </VBox>
+    </StackPane>
+</VBox>

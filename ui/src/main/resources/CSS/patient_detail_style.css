@@ -1,0 +1,224 @@
+.text-field {
+    -fx-background-color: transparent;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-text-fill: black;
+    -fx-border-color: lightgrey;
+    -fx-border-width: 1;
+    -fx-font-size: 13;
+}
+
+.text-field:focused {
+    -fx-border-color: #0078d7;
+}
+
+.combo-box,
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-border-color: lightgray;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-font-size: 13;
+}
+
+.combo-box:focused,
+.date-picker:focused {
+    -fx-border-color: #0078d7;
+}
+
+.combo-box .text-field,
+.date-picker .text-field {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: black;
+    -fx-font-size: 13;
+    -fx-alignment: CENTER;
+}
+
+.combo-box .list-cell {
+    -fx-alignment: CENTER;
+}
+
+.male-toggle-button {
+    -fx-border-color: #29B6F6;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.male-toggle-button:selected {
+    -fx-background-color: #29B6F6;
+}
+
+.female-toggle-button {
+    -fx-border-color: #F8BBD0;
+    -fx-background-color: transparent;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.female-toggle-button:selected {
+    -fx-background-color: #F8BBD0;
+}
+
+.button {
+    -fx-border-color: lightgray;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-font-size: 14;
+}
+
+.button:hover {
+    -fx-background-color: #A5D6A7;
+    -fx-border-color: #66BB6A;
+}
+
+/* Đăng ký */
+.btn-register {
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-background-color: linear-gradient(to right, #66BB6A, #A5D6A7);
+}
+.btn-register:hover {
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-background-color: linear-gradient(to right, #4CAF50, #81C784);
+}
+
+/* Cập nhật */
+.btn-update {
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-background-color: linear-gradient(to right, #7E57C2, #9575CD);
+}
+.btn-update:hover {
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-background-color: linear-gradient(to right, #673AB7, #9575CD);
+}
+
+/* Xóa */
+.btn-delete {
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-background-color: linear-gradient(to right, #EF5350, #FF8A65);
+}
+.btn-delete:hover {
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to right, #E53935, #FF7043);
+}
+
+/* tableview */
+/* TableView header background */
+.table-view .column-header,
+.table-view .column-header-background {
+    -fx-background-color: #F0FFF0;
+    -fx-border-color: transparent transparent LightGray transparent;
+    -fx-pref-height: 40;
+}
+
+/* TableView header label */
+.table-view .column-header .label {
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-alignment: CENTER;
+}
+
+/* Border & corner radius */
+.table-view {
+    -fx-border-width: 0px;
+    -fx-border-color: transparent;
+    -fx-background-color: #F0FFF0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+/* Cell styling */
+.table-view .cell {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-alignment: CENTER;
+}
+
+/* scroll bar */
+/* Áp dụng cho toàn bộ ScrollBar trong TableView */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent; /* hoặc bạn có thể để màu nền nhẹ */
+}
+
+/* Thanh track (nền cuộn) */
+.table-view .scroll-bar .track {
+    -fx-background-color: #E0E0E0;  /* xám nhạt */
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+}
+
+/* Nút kéo thumb */
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #BDBDBD;  /* xám đậm hơn chút */
+    -fx-background-insets: 2;
+    -fx-background-radius: 5;
+}
+
+/* Khi hover thumb */
+.table-view .scroll-bar .thumb:hover {
+    -fx-background-color: #9E9E9E;  /* xám đậm hơn khi hover */
+}
+
+/* Các nút mũi tên nếu có (tùy theme/OS) */
+.table-view .scroll-bar .increment-button,
+.table-view .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+/* ChoiceBox */
+.choice-box {
+    -fx-background-color: transparent;
+    -fx-border-color: lightgray;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-font-size: 13px;
+    -fx-text-fill: black;
+}
+
+.choice-box:focused {
+    -fx-border-color: #0078d7;
+}
+
+/* Phần hiển thị text */
+.choice-box .label {
+    -fx-text-fill: black;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER;
+}
+
+/* Các mục trong menu xổ xuống */
+.choice-box .context-menu {
+    -fx-background-color: white;
+    -fx-border-color: lightgray;
+    -fx-border-radius: 4;
+    -fx-padding: 2 0 2 0;
+}
+
+.choice-box .menu-item {
+    -fx-padding: 5 15;
+    -fx-font-size: 13px;
+    -fx-text-fill: black;
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: #E3F2FD;
+    -fx-text-fill: black;
+}

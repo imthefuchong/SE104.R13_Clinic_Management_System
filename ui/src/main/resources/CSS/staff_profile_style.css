@@ -1,0 +1,354 @@
+/* employee_profile_style.css */
+
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap');
+
+/* Main Container */
+.main-container {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: transparent;
+}
+
+.content-wrapper {
+    -fx-background-color: #F1F8F9;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 20, 0.5, 0, 2);
+    -fx-alignment: center;
+}
+
+/* Header Styles */
+.header-section {
+    -fx-alignment: center;
+    -fx-padding: 0 0 10 0;
+}
+
+.main-title {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 28px;
+    -fx-font-weight: 600;
+
+    -fx-text-fill: #2c3e50;
+    -fx-alignment: center;
+}
+
+.subtitle {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+    -fx-text-fill: #6c757d;
+    -fx-alignment: center;
+}
+
+.header-separator {
+    -fx-background-color: linear-gradient(to right, transparent, #e9ecef, transparent);
+    -fx-pref-height: 2px;
+    -fx-max-width: 300px;
+}
+
+/* Section Styles */
+.section-title {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #495057;
+    -fx-padding: 0 0 5 0;
+}
+
+.form-grid {
+    -fx-background-color: #fdfdfd;
+    -fx-background-radius: 8px;
+    -fx-padding: 25px;
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+/* Field Labels */
+.field-label {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #495057;
+    -fx-alignment: center-right;
+    -fx-padding: 0 10 0 0;
+}
+
+/* Text Fields */
+.text-field {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 10px 15px;
+    -fx-text-fill: #495057;
+    -fx-prompt-text-fill: #adb5bd;
+}
+
+.text-field:focused {
+    -fx-border-color: #007bff;
+    -fx-effect: dropshadow(gaussian, rgba(0,123,255,0.25), 0, 0, 0, 0);
+}
+
+.text-field:hover {
+    -fx-border-color: #adb5bd;
+}
+
+/* Password Field (hidden and visible types) */
+.password-field,
+.password-field-visible {
+     -fx-font-family: 'Segoe UI', sans-serif;
+     -fx-font-size: 14px;
+     -fx-background-color: white;
+     -fx-border-color: #ced4da;
+     -fx-border-width: 1.5px;
+     -fx-border-radius: 6px;
+     -fx-background-radius: 6px;
+     -fx-padding: 10px 15px;
+     -fx-text-fill: #495057;
+     -fx-prompt-text-fill: #adb5bd;
+}
+/* Password Toggle Button */
+.password-toggle-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 12px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-weight: 500;
+    -fx-cursor: hand;
+    -fx-padding: 5px 8px;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-content-display: CENTER;
+
+}
+
+.password-toggle-button:hover {
+    -fx-background-color: rgba(0, 123, 255, 0.1);
+    -fx-text-fill: #0056b3;
+}
+
+.password-toggle-button:pressed {
+    -fx-background-color: rgba(0, 123, 255, 0.2);
+    -fx-text-fill: #004085;
+}
+
+/* Salary Field */
+.salary-field {
+    -fx-background-color: #f0fff0;
+    -fx-border-color: #28a745;
+}
+
+.salary-field:focused {
+    -fx-border-color: #20c997;
+    -fx-effect: dropshadow(gaussian, rgba(32,201,151,0.25), 0, 0, 0, 0);
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 10px 15px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #007bff;
+    -fx-effect: dropshadow(gaussian, rgba(0,123,255,0.25), 0, 0, 0, 0);
+}
+
+.combo-box .list-cell {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #495057;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #6c757d;
+}
+
+/* DatePicker */
+.date-picker {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+.date-picker:focused {
+    -fx-border-color: #007bff;
+    -fx-effect: dropshadow(gaussian, rgba(0,123,255,0.25), 0, 0, 0, 0);
+}
+
+.date-picker .text-field {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-padding: 10px 15px;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/* Gender Toggle Buttons */
+.gender-container {
+    -fx-alignment: center-left;
+}
+
+.toggle-button {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 15px;
+    -fx-text-fill: #495057;
+    -fx-cursor: hand;
+}
+
+.toggle-button:hover {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #adb5bd;
+}
+
+.toggle-male:selected {
+    -fx-background-color: #007bff;
+    -fx-border-color: #007bff;
+    -fx-text-fill: white;
+}
+
+.toggle-female:selected {
+    -fx-background-color: #e91e63;
+    -fx-border-color: #e91e63;
+    -fx-text-fill: white;
+}
+
+/* Buttons */
+.button-container {
+    -fx-alignment: center-right;
+    -fx-padding: 20 0 0 0;
+}
+
+.button {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-padding: 12px 20px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.5, 0, 1);
+}
+
+.cancel-button {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+    -fx-border-color: #6c757d;
+    -fx-border-width: 1px;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #5a6268;
+    -fx-border-color: #5a6268;
+}
+
+.save-button {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-border-color: #28a745;
+    -fx-border-width: 1px;
+}
+
+.save-button:hover {
+    -fx-background-color: #218838;
+    -fx-border-color: #218838;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .content-wrapper {
+        -fx-max-width: 1200px;
+    }
+
+    .form-grid {
+        -fx-padding: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        -fx-max-width: 600px;
+    }
+
+    .main-title {
+        -fx-font-size: 24px;
+    }
+
+    .form-grid {
+        -fx-padding: 15px;
+    }
+}
+
+/* Scrollbar Styling */
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-pref-width: 8px;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #ced4da;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #adb5bd;
+}
+
+/* Animation Effects */
+.text-field, .combo-box, .date-picker, .toggle-button, .button {
+    -fx-transition: all 0.3s ease;
+}
+
+/* Focus Indicators */
+.text-field:focused, .combo-box:focused, .date-picker:focused {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Validation States */
+.text-field.error {
+    -fx-border-color: #dc3545;
+    -fx-background-color: #fff5f5;
+}
+
+.text-field.success {
+    -fx-border-color: #28a745;
+    -fx-background-color: #f0fff0;
+}

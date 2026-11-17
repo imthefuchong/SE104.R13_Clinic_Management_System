@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="768.0" prefWidth="1200.0"
+            stylesheets="@../CSS/style.css"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.controllers.MenuController">
+
+    <!-- SIDEBAR BÊN TRÁI CHUẨN PDF -->
+    <left>
+        <VBox alignment="TOP_CENTER" prefWidth="230.0" spacing="0"
+              styleClass="sidebar-container"
+              stylesheets="@../CSS/menu-style.css">
+
+            <!-- Logo Trái Tim Chuẩn PDF -->
+            <HBox alignment="CENTER" prefHeight="65.0">
+                <padding>
+                    <Insets bottom="6.0" top="10.0" />
+                </padding>
+                <ImageView fx:id="logoImage" fitHeight="42.0" fitWidth="42.0" preserveRatio="true">
+                    <image>
+                        <Image url="@/assets/logo.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+
+            <!-- DANH SÁCH MENU ITEMS -->
+            <VBox fx:id="menuItems" spacing="6" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets left="14.0" right="14.0" top="6.0" />
+                </padding>
+
+                <!-- 1. Bảng điều khiển -->
+                <HBox fx:id="btnDashboard" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/dashboard-icon.png" /></image>
+                    </ImageView>
+                    <Label text="Bảng điều khiển" />
+                </HBox>
+
+                <!-- 2. Danh sách khám trong ngày -->
+                <HBox fx:id="btnAppointment" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/calendar.png" /></image>
+                    </ImageView>
+                    <Label text="Danh sách khám trong ngày" />
+                </HBox>
+
+                <!-- 3. Tra cứu danh sách khám -->
+                <HBox fx:id="btnMedicalReport" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/medical-report-icon.png" /></image>
+                    </ImageView>
+                    <Label text="Tra cứu danh sách khám" />
+                </HBox>
+
+                <!-- 4. Lịch trực -->
+                <HBox fx:id="btnDutySchedule" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/calendar.png" /></image>
+                    </ImageView>
+                    <Label text="Lịch trực" />
+                </HBox>
+
+                <!-- 5. Nhân viên -->
+                <HBox fx:id="btnStaff" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/nurse-icon.png" /></image>
+                    </ImageView>
+                    <Label text="Nhân viên" />
+                </HBox>
+
+                <!-- 6. Bệnh nhân -->
+                <HBox fx:id="btnPatients" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/patient-icon.png" /></image>
+                    </ImageView>
+                    <Label text="Bệnh nhân" />
+                </HBox>
+
+                <!-- 7. Thuốc -->
+                <HBox fx:id="btnMedicine" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/pill-icon.png" /></image>
+                    </ImageView>
+                    <Label text="Thuốc" />
+                </HBox>
+
+                <!-- 8. Báo cáo thống kê -->
+                <HBox fx:id="btnAnalytics" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/chart-icon.png" /></image>
+                    </ImageView>
+                    <Label text="Báo cáo thống kê" />
+                </HBox>
+
+                <!-- 9. Quản lý tài khoản -->
+                <HBox fx:id="btnAccounts" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/myprofile.png" /></image>
+                    </ImageView>
+                    <Label text="Tài khoản" />
+                </HBox>
+
+                <!-- 10. Quy định phòng mạch -->
+                <HBox fx:id="btnRules" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/dashboard-icon.png" /></image>
+                    </ImageView>
+                    <Label text="Quy định" />
+                </HBox>
+
+                <!-- 11. Thông tin cá nhân -->
+                <HBox fx:id="btnMyprofile" styleClass="menu-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/myprofile.png" /></image>
+                    </ImageView>
+                    <Label text="Thông tin cá nhân" />
+                </HBox>
+            </VBox>
+
+            <!-- ĐĂNG XUẤT Ở ĐÁY SIDEBAR -->
+            <VBox alignment="BOTTOM_CENTER">
+                <padding>
+                    <Insets bottom="16.0" left="14.0" right="14.0" top="10.0" />
+                </padding>
+                <HBox fx:id="btnLogout" styleClass="signout-item">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/signout-icon.png" /></image>
+                    </ImageView>
+                    <Label text="Đăng xuất" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- CONTENT VỚI TOP SEARCH BAR CHUẨN PDF -->
+    <center>
+        <VBox spacing="0" style="-fx-background-color: #EDF4F1;" VBox.vgrow="ALWAYS">
+            <!-- Thanh Header trên cùng -->
+            <HBox alignment="CENTER_LEFT" spacing="16">
+                <padding>
+                    <Insets bottom="10.0" left="20.0" right="20.0" top="14.0" />
+                </padding>
+
+                <!-- Thanh tìm kiếm kiểu Pill -->
+                <HBox alignment="CENTER_LEFT" maxWidth="600.0" spacing="8" styleClass="pill-search-container" HBox.hgrow="ALWAYS">
+                    <ImageView fitHeight="16" fitWidth="16" opacity="0.6" preserveRatio="true">
+                        <image><Image url="@/assets/loupe.png" /></image>
+                    </ImageView>
+                    <TextField promptText="Tìm kiếm..." styleClass="pill-search-field" HBox.hgrow="ALWAYS" />
+                </HBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Logo Trái Tim góc phải nhỏ xinh -->
+                <StackPane prefHeight="36.0" prefWidth="36.0"
+                           style="-fx-background-color: #FFFFFF; -fx-background-radius: 18; -fx-border-color: #CBD5E1; -fx-border-radius: 18; -fx-border-width: 1;">
+                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+                        <image><Image url="@/assets/logo.png" /></image>
+                    </ImageView>
+                </StackPane>
+            </HBox>
+
+            <!-- Vùng hiển thị màn hình con -->
+            <StackPane fx:id="contentArea" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets bottom="16.0" left="20.0" right="20.0" top="4.0" />
+                </padding>
+            </StackPane>
+        </VBox>
+    </center>
+</BorderPane>

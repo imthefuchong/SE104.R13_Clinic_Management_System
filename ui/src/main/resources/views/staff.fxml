@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fillWidth="true" spacing="12"
+      style="-fx-background-color: transparent;"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.StaffController">
+
+    <!-- CARD CHÍNH CHỨA BẢNG NHÂN VIÊN VÀ THANH CÔNG CỤ XANH MINT -->
+    <VBox fillWidth="true" spacing="14" styleClass="card-pane" VBox.vgrow="ALWAYS">
+
+        <!-- Toolbar xanh mint nhạt bo góc lớn chuẩn Trang 15 PDF -->
+        <HBox alignment="CENTER_LEFT" spacing="12"
+              style="-fx-background-color: #F1F8E9; -fx-background-radius: 24; -fx-border-color: #DCEDC8; -fx-border-radius: 24; -fx-padding: 6 18;">
+
+            <!-- Nhãn Tổng dữ liệu viên -->
+            <Label fx:id="lblTotalStaffs"
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1B4D3E;"
+                   text="Tổng Dữ liệu viên: 5" />
+
+            <!-- Nút Thêm (Viên thuốc xanh mint bo tròn) -->
+            <Button fx:id="btnAdd"
+                    style="-fx-background-color: #C8E6C9; -fx-border-color: #81C784; -fx-border-radius: 16; -fx-background-radius: 16; -fx-text-fill: #1B5E20; -fx-font-weight: bold; -fx-padding: 4 14; -fx-cursor: hand;"
+                    text="➕  Thêm" />
+
+            <!-- Nút Chỉnh sửa (Viên thuốc xanh mint bo tròn) -->
+            <Button fx:id="btnEdit"
+                    style="-fx-background-color: #C8E6C9; -fx-border-color: #81C784; -fx-border-radius: 16; -fx-background-radius: 16; -fx-text-fill: #1B5E20; -fx-font-weight: bold; -fx-padding: 4 14; -fx-cursor: hand;"
+                    text="✏  Chỉnh sửa" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Bộ lọc Trạng thái: đặt trên toolbar -->
+            <Label style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #1B5E20;" text="Trạng thái:" />
+            <ComboBox fx:id="cbStatusFilter" prefHeight="30.0" prefWidth="125.0" promptText="Tất cả"
+                      style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-border-color: #81C784; -fx-border-radius: 15; -fx-border-width: 1;" />
+
+            <!-- Nút Nghỉ việc bên phải -->
+            <Button fx:id="btnLeave"
+                    style="-fx-background-color: #C8E6C9; -fx-border-color: #81C784; -fx-border-radius: 16; -fx-background-radius: 16; -fx-text-fill: #1B5E20; -fx-font-weight: bold; -fx-padding: 4 14; -fx-cursor: hand;"
+                    text="🛏  Nghỉ việc" />
+
+            <!-- Nút + tròn nhỏ góc phải -->
+            <Button onAction="#initialize" prefHeight="26.0" prefWidth="26.0"
+                    style="-fx-background-color: #FFFFFF; -fx-border-color: #81C784; -fx-border-radius: 13; -fx-background-radius: 13; -fx-text-fill: #1B5E20; -fx-font-weight: bold; -fx-padding: 0; -fx-cursor: hand;"
+                    text="+" />
+        </HBox>
+
+        <!-- TextField ẩn để giữ tương thích tfSearch trong StaffController -->
+        <TextField fx:id="tfSearch" managed="false" visible="false" />
+
+        <!-- BẢNG NHÂN VIÊN CHUẨN CỘT VÀ STYLE TRANG 15 PDF -->
+        <TableView fx:id="tvStaff" editable="false" minHeight="280.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idCol" prefWidth="130.0" text="Mã nhân viên" />
+                <TableColumn fx:id="nameCol" prefWidth="220.0" text="Họ và tên" />
+                <TableColumn fx:id="roleCol" prefWidth="150.0" text="Chức vụ" />
+                <TableColumn fx:id="phoneCol" prefWidth="170.0" text="Thông tin liên hệ" />
+                <TableColumn fx:id="statusCol" prefWidth="150.0" text="Trạng thái" />
+            </columns>
+            <placeholder>
+                <Label style="-fx-text-fill: #94A3B8;" text="Không có dữ liệu nhân viên nào" />
+            </placeholder>
+        </TableView>
+
+    </VBox>
+
+</VBox>

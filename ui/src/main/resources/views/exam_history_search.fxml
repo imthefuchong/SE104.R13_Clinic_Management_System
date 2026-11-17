@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fillWidth="true" spacing="16"
+      style="-fx-background-color: transparent;"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.ExamHistorySearchController">
+
+    <padding><Insets bottom="8.0" left="4.0" right="4.0" top="4.0" /></padding>
+
+    <!-- CARD CHÍNH -->
+    <VBox fillWidth="true" spacing="16" styleClass="card-pane" VBox.vgrow="ALWAYS">
+
+        <!-- Tiêu đề màn hình -->
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1E293B;"
+               text="Tra cứu lịch sử khám" />
+
+        <!-- Bộ lọc nằm trên hai hàng với nhãn phía trên ô nhập -->
+        <GridPane hgap="14" vgap="6"
+                  style="-fx-background-color: #FFFFFF;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="24" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="24" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="24" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="28" />
+            </columnConstraints>
+
+            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label style="-fx-font-size: 12px; -fx-text-fill: #475569;" text="Họ tên" />
+                <TextField fx:id="tfHoTen" prefHeight="36"
+                           promptText="Nhập họ tên..."
+                           style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #CBD5E1; -fx-border-width: 1; -fx-padding: 6 10;" />
+            </VBox>
+
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label style="-fx-font-size: 12px; -fx-text-fill: #475569;" text="Ngày khám" />
+                <DatePicker fx:id="dpNgayKham" prefHeight="36" maxWidth="Infinity" />
+            </VBox>
+
+            <VBox spacing="5" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <Label style="-fx-font-size: 12px; -fx-text-fill: #475569;" text="Loại bệnh" />
+                <ComboBox fx:id="cbLoaiBenh" prefHeight="36" maxWidth="Infinity"
+                          promptText="Tất cả"
+                          style="-fx-background-radius: 6; -fx-border-radius: 6;" />
+            </VBox>
+
+            <VBox spacing="5" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                <Label style="-fx-font-size: 12px; -fx-text-fill: #475569;" text="Triệu chứng" />
+                <TextField fx:id="tfTrieuChung" prefHeight="36"
+                           promptText="Nhập triệu chứng..."
+                           style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #CBD5E1; -fx-border-width: 1; -fx-padding: 6 10;" />
+            </VBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="10"
+                  GridPane.columnIndex="2" GridPane.rowIndex="1"
+                  GridPane.columnSpan="2">
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnSearch" onAction="#handleSearch"
+                        prefHeight="36"
+                        style="-fx-background-color: #3B82F6; -fx-background-radius: 6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 7 18;"
+                        text="🔍  Tra cứu" />
+                <Button fx:id="btnReset" onAction="#handleReset"
+                        prefHeight="36"
+                        style="-fx-background-color: #FFFFFF; -fx-background-radius: 6; -fx-border-color: #CBD5E1; -fx-border-width: 1; -fx-border-radius: 6; -fx-text-fill: #475569; -fx-font-weight: bold; -fx-padding: 7 16;"
+                        text="↺  Xóa bộ lọc" />
+            </HBox>
+        </GridPane>
+
+        <!-- Bảng kết quả (PDF trang 50: STT | Mã BN | Họ tên | Giới tính | Năm sinh | Địa chỉ | Trạng thái) -->
+        <TableView fx:id="tvResults" editable="false" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colSTT"       prefWidth="55.0"  text="STT" />
+                <TableColumn fx:id="colMaBN"      prefWidth="120.0" text="Mã bệnh nhân" />
+                <TableColumn fx:id="colHoTen"     prefWidth="220.0" text="Họ tên" />
+                <TableColumn fx:id="colGioiTinh"  prefWidth="100.0" text="Giới tính" />
+                <TableColumn fx:id="colNamSinh"   prefWidth="100.0" text="Năm sinh" />
+                <TableColumn fx:id="colDiaChi"    prefWidth="200.0" text="Địa chỉ" />
+                <TableColumn fx:id="colTrangThai" prefWidth="130.0" text="Trạng thái" />
+            </columns>
+            <placeholder>
+                <Label style="-fx-text-fill: #94A3B8; -fx-font-size: 14px;"
+                       text="Nhập điều kiện và nhấn Tra cứu để tìm kiếm" />
+            </placeholder>
+        </TableView>
+
+        <!-- Footer: số kết quả + nút Quay lại -->
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="lblSoKetQua"
+                   style="-fx-font-size: 13px; -fx-text-fill: #64748B;"
+                   text="Số kết quả: 0" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnBack" onAction="#handleBack"
+                    style="-fx-background-color: #FFFFFF; -fx-background-radius: 8; -fx-border-color: #CBD5E1; -fx-border-width: 1; -fx-border-radius: 8; -fx-text-fill: #334155; -fx-font-weight: bold; -fx-padding: 7 18; -fx-cursor: hand;"
+                    text="← Quay lại" />
+        </HBox>
+
+    </VBox>
+</VBox>

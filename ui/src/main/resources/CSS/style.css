@@ -1,0 +1,358 @@
+/* ==========================================================
+   DESIGN SYSTEM - PHÒNG MẠCH TƯ (Chuẩn SE104.R13)
+   ========================================================== */
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #F0F4F2;
+}
+
+/* --- Khung Card trắng bo góc --- */
+.card-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.04), 8, 0, 0, 2);
+    -fx-padding: 20;
+}
+
+/* --- Tiêu đề màn hình --- */
+.screen-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E293B;
+}
+
+.screen-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748B;
+}
+
+/* --- Thanh tìm kiếm viên thuốc (Pill Search) --- */
+.pill-search-container {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-border-color: #CBD5E1;
+    -fx-border-width: 1.2;
+    -fx-padding: 4 14;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.pill-search-container:hover,
+.pill-search-container:focused-within {
+    -fx-border-color: #38A169;
+    -fx-effect: dropshadow(gaussian, rgba(72, 187, 120, 0.25), 6, 0, 0, 1);
+}
+
+.pill-search-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #1E293B;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-font-size: 13px;
+    -fx-padding: 4 8;
+}
+
+.pill-search-field:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* --- Ô nhập liệu thông thường --- */
+.text-field,
+.password-field {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #1E293B;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-border-color: #CBD5E1;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 13px;
+    -fx-padding: 7 10;
+}
+
+.text-field:focused,
+.password-field:focused {
+    -fx-border-color: #38A169;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(56, 161, 105, 0.2), 4, 0, 0, 1);
+}
+
+.text-field:disabled,
+.text-field:read-only {
+    -fx-background-color: #F8FAFC;
+    -fx-text-fill: #475569;
+    -fx-border-color: #E2E8F0;
+}
+
+/* --- ComboBox & DatePicker --- */
+.combo-box,
+.date-picker {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CBD5E1;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 13px;
+    -fx-padding: 1 4;
+}
+
+.combo-box:focused,
+.date-picker:focused {
+    -fx-border-color: #38A169;
+}
+
+.combo-box .text-field,
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 6 8;
+}
+
+/* --- Bảng TableView chuẩn Mint Green --- */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #E8F8F5;
+    -fx-background-radius: 8 8 0 0;
+    -fx-border-color: transparent transparent #D1D5DB transparent;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 38px;
+    -fx-padding: 4 8;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #1E3A2F;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #F1F5F9 transparent;
+    -fx-border-width: 0.5;
+    -fx-cell-size: 38px;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #FAFCFB;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #E8F5E9;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #C8E6C9;
+    -fx-text-fill: #1B5E20;
+}
+
+.table-view .table-row-cell:selected .text {
+    -fx-fill: #1B5E20;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-alignment: CENTER;
+    -fx-padding: 6 10;
+    -fx-font-size: 13px;
+    -fx-text-fill: #334155;
+}
+
+/* --- Các nút lệnh chuẩn --- */
+.btn-primary,
+.btn-green {
+    -fx-background-color: #48BB78;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.btn-primary:hover,
+.btn-green:hover {
+    -fx-background-color: #38A169;
+}
+
+.btn-primary:pressed,
+.btn-green:pressed {
+    -fx-background-color: #2F855A;
+}
+
+.btn-blue {
+    -fx-background-color: #3182CE;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.btn-blue:hover {
+    -fx-background-color: #2B6CB0;
+}
+
+.btn-outline-blue {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #3182CE;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #3182CE;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 14;
+    -fx-cursor: hand;
+}
+
+.btn-outline-blue:hover {
+    -fx-background-color: #EBF8FF;
+}
+
+.btn-danger,
+.btn-red {
+    -fx-background-color: #E53E3E;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.btn-danger:hover,
+.btn-red:hover {
+    -fx-background-color: #C53030;
+}
+
+.btn-outline-danger {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E53E3E;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #E53E3E;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 14;
+    -fx-cursor: hand;
+}
+
+.btn-outline-danger:hover {
+    -fx-background-color: #FFF5F5;
+}
+
+.btn-secondary,
+.btn-gray {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #475569;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 14;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover,
+.btn-gray:hover {
+    -fx-background-color: #F8FAFC;
+    -fx-border-color: #94A3B8;
+}
+
+/* --- Nhãn trạng thái (Status Badges) --- */
+.badge-waiting {
+    -fx-background-color: #FEF3C7;
+    -fx-text-fill: #D97706;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 4 10;
+}
+
+.badge-examined {
+    -fx-background-color: #DBEAFE;
+    -fx-text-fill: #2563EB;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 4 10;
+}
+
+.badge-active {
+    -fx-background-color: #D1FAE5;
+    -fx-text-fill: #059669;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 4 10;
+}
+
+.badge-inactive {
+    -fx-background-color: #FEE2E2;
+    -fx-text-fill: #DC2626;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 4 10;
+}
+
+/* --- TitledPane đồng bộ phiếu khám bệnh --- */
+.titled-pane {
+    -fx-text-fill: #1E3A2F;
+}
+
+.titled-pane > .title {
+    -fx-background-color: #A3E4D7;
+    -fx-background-radius: 6 6 0 0;
+    -fx-padding: 8 14;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #1B4D3E;
+}
+
+.titled-pane > .content {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #A3E4D7;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-radius: 0 0 6 6;
+    -fx-background-radius: 0 0 6 6;
+    -fx-padding: 14;
+}
+
+/* --- ScrollBar mỏng nhẹ --- */
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #F1F5F9;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #CBD5E1;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #94A3B8;
+}

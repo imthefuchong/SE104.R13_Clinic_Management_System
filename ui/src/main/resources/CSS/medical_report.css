@@ -1,0 +1,117 @@
+/* label */
+.label {
+    -fx-font-size: 13;
+}
+
+/* button */
+.button {
+    -fx-border-color: lightgray;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-font-size: 13;
+}
+
+.button:hover {
+    -fx-background-color: #A5D6A7;
+    -fx-border-color: #66BB6A;
+}
+
+/* text field, text area */
+.text-area,
+.text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-text-fill: black;
+    /*-fx-font-weight: bold;*/
+    -fx-border-color: lightgrey;
+    -fx-border-width: 1;
+    -fx-font-size: 13;
+}
+
+.text-area,
+.text-field:focused {
+    -fx-border-color: #0078d7;
+}
+
+/* tableview */
+/* TableView header background */
+.table-view .column-header,
+.table-view .column-header-background {
+    -fx-background-color: #F0FFF0;
+    -fx-border-color: transparent transparent LightGray transparent;
+    -fx-pref-height: 40;
+}
+
+/* TableView header label */
+.table-view .column-header .label {
+    -fx-text-fill: black;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-alignment: CENTER;
+}
+
+/* Border & corner radius */
+.table-view {
+    -fx-border-width: 0px;
+    -fx-border-color: transparent;
+    -fx-background-color: #F0FFF0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+/* Cell styling */
+.table-view .cell {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+    -fx-alignment: CENTER;
+}
+
+/* scroll bar */
+/* Áp dụng cho toàn bộ ScrollBar trong TableView */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent; /* hoặc bạn có thể để màu nền nhẹ */
+}
+
+/* Thanh track (nền cuộn) */
+.table-view .scroll-bar .track {
+    -fx-background-color: #E0E0E0;  /* xám nhạt */
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+}
+
+/* Nút kéo thumb */
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #BDBDBD;  /* xám đậm hơn chút */
+    -fx-background-insets: 2;
+    -fx-background-radius: 5;
+}
+
+/* Khi hover thumb */
+.table-view .scroll-bar .thumb:hover {
+    -fx-background-color: #9E9E9E;  /* xám đậm hơn khi hover */
+}
+
+/* Các nút mũi tên nếu có (tùy theme/OS) */
+.table-view .scroll-bar .increment-button,
+.table-view .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* titled pane */
+.titled-pane > .title {
+    -fx-background-color: #A5D6A7;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-padding: 8;
+}
+
+.titled-pane > *.content {
+    -fx-background-color: #F0FFF0;
+}

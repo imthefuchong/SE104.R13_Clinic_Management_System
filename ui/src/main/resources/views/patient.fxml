@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fillWidth="true" spacing="14"
+      styleClass="card-pane"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.PatientController">
+
+    <!-- Thanh tiêu đề & Tìm kiếm bệnh nhân chuẩn PDF -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox spacing="2">
+            <Label styleClass="screen-title" text="Danh sách bệnh nhân" />
+            <Label fx:id="lblTotalPatients" styleClass="screen-subtitle" text="Tổng số bệnh nhân (0)" />
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <!-- Ô tìm kiếm bệnh nhân nhanh -->
+        <HBox alignment="CENTER_LEFT" spacing="8" styleClass="pill-search-container" prefWidth="280">
+            <ImageView fitHeight="16" fitWidth="16" opacity="0.6" preserveRatio="true">
+                <image><Image url="@/assets/loupe.png" /></image>
+            </ImageView>
+            <TextField fx:id="tfSearch" promptText="Tìm theo mã hoặc tên bệnh nhân..." styleClass="pill-search-field" HBox.hgrow="ALWAYS" />
+        </HBox>
+        <Button fx:id="btnSearchHistory" onAction="#handleOpenHistory"
+                styleClass="btn-primary" text="Tra cứu lịch sử khám" />
+    </HBox>
+
+    <!-- Bảng danh sách bệnh nhân TableView chuẩn Mint Green -->
+    <TableView fx:id="tvPatient" editable="false" minHeight="240" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idCol" prefWidth="130" text="Mã bệnh nhân" />
+            <TableColumn fx:id="nameCol" prefWidth="200" text="Họ và tên" />
+            <TableColumn fx:id="genderCol" prefWidth="90" text="Giới tính" />
+            <TableColumn fx:id="birthCol" prefWidth="100" text="Năm sinh" />
+            <TableColumn fx:id="addressCol" prefWidth="220" text="Địa chỉ" />
+            <TableColumn fx:id="phoneCol" prefWidth="150" text="Số điện thoại" />
+        </columns>
+        <placeholder>
+            <Label style="-fx-text-fill: #94A3B8;" text="Không có hồ sơ bệnh nhân nào" />
+        </placeholder>
+    </TableView>
+
+</VBox>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="330.0" prefWidth="420.0" spacing="16.0"
+      style="-fx-background-color: #FFFFFF; -fx-padding: 30;"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.EmailVerificationController">
+
+    <!-- Header Tiêu đề chuẩn PDF -->
+    <VBox alignment="CENTER" spacing="4.0">
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1E293B;"
+               text="Quên mật khẩu" />
+        <Label style="-fx-font-size: 13px; -fx-text-fill: #64748B;"
+               text="Nhập tên đăng nhập và email đã đăng ký để nhận mã xác nhận"
+               wrapText="true" textAlignment="CENTER" />
+    </VBox>
+
+    <!-- Trường Tên đăng nhập / Mã nhân viên -->
+    <VBox spacing="6.0" alignment="TOP_LEFT">
+        <Label style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #334155;"
+               text="Tên đăng nhập:" />
+        <TextField fx:id="maNhanVienField" promptText="Nhập tên đăng nhập"
+                   prefHeight="36.0" />
+    </VBox>
+
+    <!-- Trường Email -->
+    <VBox spacing="6.0" alignment="TOP_LEFT">
+        <Label style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #334155;"
+               text="Email đã đăng ký:" />
+        <TextField fx:id="emailField" promptText="example@gmail.com"
+                   prefHeight="36.0" />
+    </VBox>
+
+    <!-- Nút Gửi mã xác nhận xanh chuẩn PDF -->
+    <VBox alignment="CENTER">
+        <padding><Insets top="6.0" /></padding>
+        <Button fx:id="btnXacNhan" onAction="#handleSendOTP"
+                prefHeight="36.0" prefWidth="180.0"
+                styleClass="btn-primary"
+                text="Gửi mã xác nhận" />
+    </VBox>
+
+</VBox>
