@@ -1,0 +1,21 @@
+# Maven build output
+target/
+
+# IDE files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Generated files
+*.class
+*.log
+hs_err_pid*
+
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+application-local.properties
+database-local.properties

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="12" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.PatientSelectionDialogController" style="-fx-padding: 16;"
+      stylesheets="@../CSS/patient_detail_style.css">
+
+    <TextField fx:id="txtSearch" promptText="🔍 Tìm kiếm (Mã BN, Họ Tên, SDT)" />
+
+    <TableView fx:id="tableBenhNhan" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colHoTen" text="Họ tên" />
+            <TableColumn fx:id="colSoDienThoai" text="SĐT" />
+            <TableColumn fx:id="colNgaySinh" text="Ngày sinh" />
+            <TableColumn fx:id="colGioiTinh" text="Giới tính" />
+        </columns>
+    </TableView>
+
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button fx:id="btnChon" text="✔ Chọn" />
+        <Button fx:id="btnHuy" text="❌ Hủy" />
+    </HBox>
+</VBox>

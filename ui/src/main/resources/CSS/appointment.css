@@ -1,0 +1,132 @@
+.appointment-screen {
+    -fx-background-color: #fafcfb;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12px;
+}
+
+.appointment-screen .appointment-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #171d19;
+}
+
+.appointment-screen .appointment-date {
+    -fx-font-size: 14px;
+    -fx-text-fill: #242a26;
+}
+
+.appointment-screen .received-caption {
+    -fx-font-size: 12px;
+    -fx-text-fill: #252b27;
+}
+
+.appointment-screen .received-number {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #269641;
+}
+
+.appointment-screen .button {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 11px;
+    -fx-padding: 3 10;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.appointment-screen .add-patient-button {
+    -fx-background-color: #f5fff5;
+    -fx-border-color: #83c896;
+    -fx-text-fill: #21873b;
+}
+
+.appointment-screen .add-patient-button:hover {
+    -fx-background-color: #e5f5e7;
+}
+
+.appointment-screen .remove-patient-button {
+    -fx-background-color: #fffafa;
+    -fx-border-color: #de9b9b;
+    -fx-text-fill: #cb4242;
+}
+
+.appointment-screen .remove-patient-button:hover {
+    -fx-background-color: #ffeded;
+}
+
+.appointment-screen .appointment-table {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+    -fx-border-color: #dce5dd;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-padding: 0;
+    -fx-fixed-cell-size: 25;
+    -fx-selection-bar: #e4f2e6;
+    -fx-selection-bar-non-focused: #edf5ee;
+}
+
+.appointment-screen .appointment-table .column-header-background {
+    -fx-background-color: #effaee;
+}
+
+.appointment-screen .appointment-table .column-header,
+.appointment-screen .appointment-table .filler {
+    -fx-background-color: #effaee;
+    -fx-border-color: transparent #e0eade #dce5dd transparent;
+    -fx-border-width: 0 1 1 0;
+    -fx-size: 32;
+}
+
+.appointment-screen .appointment-table .column-header .label {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #202720;
+    -fx-alignment: center;
+    -fx-padding: 4;
+}
+
+.appointment-screen .appointment-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+}
+
+.appointment-screen .appointment-table .table-row-cell:odd {
+    -fx-background-color: #fbfdfc;
+}
+
+.appointment-screen .appointment-table .table-row-cell:selected {
+    -fx-background-color: #e4f2e6;
+}
+
+.appointment-screen .appointment-table .table-cell {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12px;
+    -fx-text-fill: #34434b;
+    -fx-alignment: center;
+    -fx-padding: 2 5;
+    -fx-border-color: transparent #edf0ed #edf0ed transparent;
+    -fx-border-width: 0 1 1 0;
+}
+
+.appointment-screen .appointment-table .table-row-cell:empty {
+    -fx-background-color: white;
+}
+
+.appointment-screen .appointment-table .table-row-cell:empty .table-cell {
+    -fx-border-color: transparent;
+}
+
+.appointment-screen .status-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #3e5860;
+}
+
+.appointment-screen .appointment-table .scroll-bar:vertical,
+.appointment-screen .appointment-table .scroll-bar:horizontal {
+    -fx-background-color: #f6f8f6;
+}

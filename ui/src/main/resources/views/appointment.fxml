@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fillWidth="true" spacing="14"
+      styleClass="card-pane"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.AppointmentController">
+
+    <!-- Tiêu đề trái, Ngày ở bên phải chuẩn PDF -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label styleClass="screen-title" text="Danh sách khám bệnh" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label fx:id="lblExamDate"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #334155;"
+               text="Thứ Ba, 08 tháng 7 năm 2025" />
+    </HBox>
+
+    <!-- Số tiếp nhận và Hai nút thao tác -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <HBox alignment="CENTER_LEFT" spacing="6">
+            <Label style="-fx-font-size: 13.5px; -fx-text-fill: #64748B;" text="Đã tiếp nhận:" />
+            <Label style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #16A34A;" text="12/40" />
+        </HBox>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <!-- Nút + Thêm bệnh nhân -->
+        <Button onAction="#handleAddPatient"
+                styleClass="btn-primary"
+                text="+ Thêm bệnh nhân" />
+
+        <!-- Nút Bỏ khỏi danh sách -->
+        <Button onAction="#handleRemovePatient"
+                styleClass="btn-outline-danger"
+                text="Bỏ khỏi danh sách" />
+    </HBox>
+
+    <!-- Bảng danh sách bệnh nhân khám TableView -->
+    <TableView fx:id="tblAppointments" editable="false" minHeight="240" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colOrder" prefWidth="60" text="STT" />
+            <TableColumn fx:id="colPatientId" prefWidth="120" text="Mã bệnh nhân" />
+            <TableColumn fx:id="colFullName" prefWidth="180" text="Họ tên" />
+            <TableColumn fx:id="colGender" prefWidth="85" text="Giới tính" />
+            <TableColumn fx:id="colBirthYear" prefWidth="95" text="Năm sinh" />
+            <TableColumn fx:id="colAddress" prefWidth="240" text="Địa chỉ" />
+            <TableColumn fx:id="colStatus" prefWidth="130" text="Trạng thái" />
+        </columns>
+        <placeholder>
+            <Label style="-fx-text-fill: #94A3B8;" text="Không có bệnh nhân trong danh sách hôm nay" />
+        </placeholder>
+    </TableView>
+
+</VBox>

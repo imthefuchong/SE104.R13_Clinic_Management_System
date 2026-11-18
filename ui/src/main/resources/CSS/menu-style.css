@@ -1,0 +1,73 @@
+/* ==========================================================
+   SIDEBAR MENU STYLE - MIKANKO (Chuẩn SE104.R13)
+   ========================================================== */
+
+.sidebar-container {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent #E2E8F0 transparent transparent;
+    -fx-border-width: 1;
+}
+
+.menu-item {
+    -fx-padding: 10 16;
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 0;
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 12;
+    -fx-cursor: hand;
+}
+
+.menu-item .label {
+    -fx-text-fill: #475569;
+    -fx-font-size: 13.5px;
+    -fx-font-weight: normal;
+}
+
+.menu-item:hover {
+    -fx-background-color: #F1FBF7;
+}
+
+.menu-item:hover .label {
+    -fx-text-fill: #1B4D3E;
+    -fx-font-weight: bold;
+}
+
+/* Mục đang chọn: dạng viên thuốc màu xanh ngọc / mint */
+.menu-item.active {
+    -fx-background-color: #A3E4D7;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(163, 228, 215, 0.4), 6, 0, 0, 2);
+}
+
+.menu-item.active .label {
+    -fx-text-fill: #0F5132;
+    -fx-font-weight: bold;
+}
+
+/* Nút Đăng xuất ở dưới cùng */
+.signout-item {
+    -fx-padding: 10 16;
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-spacing: 10;
+}
+
+.signout-item .label {
+    -fx-text-fill: #EF4444;
+    -fx-font-size: 13.5px;
+    -fx-font-weight: bold;
+}
+
+.signout-item:hover {
+    -fx-background-color: #FEE2E2;
+}
+
+.signout-item:hover .label {
+    -fx-text-fill: #DC2626;
+}

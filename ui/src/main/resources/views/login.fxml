@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="600.0" prefWidth="960.0"
+      style="-fx-background-color: #FFFFFF;"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.LoginController">
+
+    <!-- CỘT TRÁI: FORM ĐĂNG NHẬP TRÊN NỀN TRẮNG -->
+    <StackPane HBox.hgrow="ALWAYS" prefWidth="480.0" style="-fx-background-color: #FFFFFF;">
+        <!-- Họa tiết y tế mờ ở nền (trang trí) -->
+        <ImageView fitHeight="70.0" fitWidth="70.0" opacity="0.08" preserveRatio="true"
+                   StackPane.alignment="TOP_LEFT">
+            <StackPane.margin><Insets left="30.0" top="30.0" /></StackPane.margin>
+            <image><Image url="@/assets/chart-icon.png" /></image>
+        </ImageView>
+
+        <ImageView fitHeight="75.0" fitWidth="75.0" opacity="0.08" preserveRatio="true"
+                   StackPane.alignment="BOTTOM_LEFT">
+            <StackPane.margin><Insets bottom="40.0" left="40.0" /></StackPane.margin>
+            <image><Image url="@/assets/pill-icon.png" /></image>
+        </ImageView>
+
+        <!-- Form Đăng Nhập ở chính giữa -->
+        <VBox alignment="CENTER" maxWidth="380.0" spacing="14.0">
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+            </padding>
+
+            <!-- Logo trái tim xanh -->
+            <ImageView fitHeight="54.0" fitWidth="54.0" preserveRatio="true">
+                <image><Image url="@/assets/logo.png" /></image>
+            </ImageView>
+
+            <!-- Tiêu đề -->
+            <VBox alignment="CENTER" spacing="4.0">
+                <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1B7A42;" text="Đăng nhập" />
+                <Label style="-fx-font-size: 13.5px; -fx-text-fill: #64748B;" text="Đăng nhập bằng tài khoản được cấp" />
+            </VBox>
+
+            <!-- Khoảng cách nhỏ -->
+            <Region prefHeight="8.0" />
+
+            <!-- Input Tên đăng nhập bo tròn -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0"
+                  style="-fx-background-color: #FFFFFF; -fx-border-color: #CBD5E1; -fx-border-radius: 20; -fx-background-radius: 20; -fx-padding: 3 14; -fx-border-width: 1.2;">
+                <ImageView fitHeight="16.0" fitWidth="16.0" opacity="0.5" preserveRatio="true">
+                    <image><Image url="@/assets/myprofile.png" /></image>
+                </ImageView>
+                <TextField fx:id="txtTaiKhoan" promptText="Nhập tên đăng nhập"
+                           style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 7 0; -fx-font-size: 13.5px;"
+                           HBox.hgrow="ALWAYS" />
+            </HBox>
+
+            <!-- Input Mật khẩu bo tròn -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0"
+                  style="-fx-background-color: #FFFFFF; -fx-border-color: #CBD5E1; -fx-border-radius: 20; -fx-background-radius: 20; -fx-padding: 3 14; -fx-border-width: 1.2;">
+                <ImageView fitHeight="16.0" fitWidth="16.0" opacity="0.5" preserveRatio="true">
+                    <image><Image url="@/assets/nurse-icon.png" /></image>
+                </ImageView>
+                <StackPane HBox.hgrow="ALWAYS">
+                    <PasswordField fx:id="txtMatKhau" promptText="Nhập mật khẩu"
+                                   style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 7 0; -fx-font-size: 13.5px;" />
+                    <TextField fx:id="txtMatKhauVisible" managed="false" promptText="Nhập mật khẩu" visible="false"
+                               style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 7 0; -fx-font-size: 13.5px;" />
+                </StackPane>
+            </HBox>
+
+            <!-- Hàng: Hiển thị mật khẩu & Quên mật khẩu? -->
+            <HBox alignment="CENTER_LEFT">
+                <CheckBox fx:id="chkShowPassword" style="-fx-font-size: 12.5px; -fx-text-fill: #475569;" text="Hiển thị mật khẩu" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label onMouseClicked="#handleForgotPassword"
+                       style="-fx-font-size: 12.5px; -fx-text-fill: #3182CE; -fx-cursor: hand;"
+                       text="Quên mật khẩu?" />
+            </HBox>
+
+            <!-- Thông báo lỗi nếu có -->
+            <Label fx:id="lbltest" managed="false" style="-fx-background-color: #FEE2E2; -fx-background-radius: 6; -fx-padding: 6 12; -fx-font-size: 13px; -fx-text-fill: #DC2626;" visible="false" wrapText="true" />
+
+            <!-- Nút Đăng nhập -->
+            <HBox alignment="CENTER">
+                <padding><Insets top="6.0" /></padding>
+                <Button fx:id="btnDangNhap"
+                        prefHeight="36.0" prefWidth="130.0"
+                        style="-fx-background-color: #FFFFFF; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13.5px; -fx-font-weight: bold; -fx-text-fill: #1E293B; -fx-cursor: hand;"
+                        text="Đăng nhập" />
+            </HBox>
+        </VBox>
+    </StackPane>
+
+    <!-- CỘT PHẢI: HÌNH MINH HỌA BỆNH VIỆN TRÊN NỀN GRADIENT XANH NGỌC NHẠT -->
+    <StackPane HBox.hgrow="ALWAYS" prefWidth="480.0"
+               style="-fx-background-color: linear-gradient(to bottom, #C8E6C9, #E0F2F1, #B2DFDB);">
+        <!-- Hình bệnh viện lớn ở giữa -->
+        <ImageView fitHeight="340.0" fitWidth="380.0" opacity="0.95" preserveRatio="true">
+            <image>
+                <Image url="@/assets/hospital2.png" />
+            </image>
+        </ImageView>
+    </StackPane>
+</HBox>

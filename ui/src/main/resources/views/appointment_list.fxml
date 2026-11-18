@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.DatePicker?>
+<AnchorPane prefHeight="1024" prefWidth="1090"
+            style="-fx-background-color: lightgray;"
+            stylesheets="@../CSS/style.css"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.controllers.AppointmentListController">
+    <children>
+        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0"
+              prefHeight="26.0" prefWidth="456.0"
+              spacing="5"
+              style="-fx-background-radius: 20; -fx-padding: 6 12; -fx-background-color: #F1F8E9;"
+              AnchorPane.leftAnchor="20"
+              AnchorPane.rightAnchor="100"
+              AnchorPane.topAnchor="20">
+            <ImageView fitHeight="30.0" fitWidth="30.0"
+                       pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../assets/loupe.png" />
+                </image>
+            </ImageView>
+
+            <TextField fx:id="tfSearch" prefHeight="12.0"
+                       promptText="Tìm kiếm..."
+                       styleClass="rounded-textfield"
+                       HBox.hgrow="ALWAYS"/>
+
+        </HBox>
+
+        <ImageView fitHeight="56.0" fitWidth="65.0"
+                   layoutX="475.0" layoutY="9.0"
+                   AnchorPane.topAnchor="15"
+                   AnchorPane.rightAnchor="20"
+                   pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../assets/logo.png" />
+            </image>
+        </ImageView>
+
+        <VBox spacing="15"
+              style="-fx-background-radius: 20; -fx-padding: 6 12; -fx-background-color: #F1F8E9;"
+              AnchorPane.topAnchor="80"
+              AnchorPane.leftAnchor="20"
+              AnchorPane.rightAnchor="20"
+              AnchorPane.bottomAnchor="20">
+
+            <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0"
+                  prefHeight="26.0" prefWidth="456.0"
+                  spacing="5"
+                  style="-fx-background-radius: 20; -fx-padding: 6 12; -fx-background-color: White;">
+                <VBox.margin>
+                    <Insets left="15" top="15" right="15"/>
+                </VBox.margin>
+
+                <Label text="Danh sách khám bệnh" style="-fx-font-size: 16px; -fx-font-weight: bold;">
+                    <HBox.margin>
+                        <Insets left="15"/>
+                    </HBox.margin>
+                </Label>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <HBox.margin>
+                        <Insets right="15"/>
+                    </HBox.margin>
+
+                    <DatePicker fx:id="dpDate" styleClass="date-picker" editable="true"/>
+                </HBox>
+            </HBox>
+
+            <TableView fx:id="tvAppointment" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets left="15" right="15" bottom="15"/>
+                </VBox.margin>
+
+                <columns>
+                    <TableColumn text="Bệnh nhân" fx:id="nameCol"/>
+                    <TableColumn text="Lý do khám" fx:id="reasonCol"/>
+                    <TableColumn text="Kết quả khám" fx:id="resultCol"/>
+                    <TableColumn text="Chẩn đoán" fx:id="diagnoseCol"/>
+                    <TableColumn text="Điều trị" fx:id="treatCol"/>
+                    <TableColumn text="Chi phí" fx:id="costCol"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fillWidth="true" spacing="16"
+      styleClass="card-pane"
+      stylesheets="@../CSS/style.css"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controllers.DashboardController">
+
+    <!-- Tiêu đề và Ngày làm việc -->
+    <VBox spacing="6">
+        <HBox alignment="CENTER_LEFT" spacing="16">
+            <VBox spacing="3">
+                <Label styleClass="screen-title" text="Bảng điều khiển" />
+                <Label styleClass="screen-subtitle" text="Tổng quan tiếp nhận và khám bệnh" />
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label style="-fx-text-fill: #94A3B8; -fx-font-size: 12px; -fx-font-style: italic;"
+                   text="Dữ liệu minh họa — không kết nối CSDL" />
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="6" bottom="4" /></padding>
+            <Label style="-fx-font-size: 13.5px; -fx-font-weight: bold; -fx-text-fill: #334155;"
+                   text="Ngày làm việc:" />
+            <DatePicker fx:id="dpWorkingDate" editable="false" prefWidth="160" />
+        </HBox>
+    </VBox>
+
+    <!-- 3 Thẻ số liệu thống kê (Đã tiếp nhận, Đang chờ, Đã khám) chuẩn PDF -->
+    <HBox spacing="16">
+        <!-- Thẻ 1: Đã tiếp nhận -->
+        <VBox alignment="CENTER" maxWidth="Infinity" spacing="8"
+              style="-fx-background-color: #E8F8F5; -fx-background-radius: 10; -fx-border-color: #A3E4D7; -fx-border-radius: 10; -fx-border-width: 0.8;"
+              HBox.hgrow="ALWAYS">
+            <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1B4D3E;" text="Đã tiếp nhận" />
+            <Label fx:id="lblReceived" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #1E8449;" text="0" />
+        </VBox>
+
+        <!-- Thẻ 2: Đang chờ -->
+        <VBox alignment="CENTER" maxWidth="Infinity" spacing="8"
+              style="-fx-background-color: #FEF9E7; -fx-background-radius: 10; -fx-border-color: #F9E79F; -fx-border-radius: 10; -fx-border-width: 0.8;"
+              HBox.hgrow="ALWAYS">
+            <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #7D6608;" text="Đang chờ" />
+            <Label fx:id="lblWaiting" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #D97706;" text="0" />
+        </VBox>
+
+        <!-- Thẻ 3: Đã khám -->
+        <VBox alignment="CENTER" maxWidth="Infinity" spacing="8"
+              style="-fx-background-color: #EBF5FB; -fx-background-radius: 10; -fx-border-color: #AED6F1; -fx-border-radius: 10; -fx-border-width: 0.8;"
+              HBox.hgrow="ALWAYS">
+            <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1B4F72;" text="Đã khám" />
+            <Label fx:id="lblExamined" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2563EB;" text="0" />
+        </VBox>
+    </HBox>
+
+    <!-- Hàng tiêu đề danh sách và Nút mở danh sách -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <padding><Insets top="4" /></padding>
+        <Label style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1E293B;"
+               text="Danh sách khám theo ngày" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#handleOpenAppointmentList"
+                style="-fx-background-color: #A3E4D7; -fx-text-fill: #0F5132; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 7 16; -fx-cursor: hand;"
+                text="Mở danh sách khám" />
+    </HBox>
+
+    <!-- Bảng danh sách khám TableView -->
+    <TableView fx:id="tblAppointments" editable="false" minHeight="220" prefHeight="340" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colOrder" prefWidth="60" text="STT" />
+            <TableColumn fx:id="colPatientId" prefWidth="120" text="Mã bệnh nhân" />
+            <TableColumn fx:id="colFullName" prefWidth="180" text="Họ tên" />
+            <TableColumn fx:id="colGender" prefWidth="85" text="Giới tính" />
+            <TableColumn fx:id="colBirthYear" prefWidth="95" text="Năm sinh" />
+            <TableColumn fx:id="colAddress" prefWidth="200" text="Địa chỉ" />
+            <TableColumn fx:id="colStatus" prefWidth="120" text="Trạng thái" />
+        </columns>
+        <placeholder>
+            <Label style="-fx-text-fill: #94A3B8;" text="Không có dữ liệu cho ngày này" />
+        </placeholder>
+    </TableView>
+
+</VBox>
