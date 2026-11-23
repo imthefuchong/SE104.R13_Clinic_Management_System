@@ -31,13 +31,37 @@ public class MenuController {
     @FXML private HBox btnRules;
     @FXML private HBox btnLogout;
 
-    @FXML
-    private StackPane contentArea;
+    @FXML private StackPane contentArea;
+    @FXML private Label lblHeaderTitle;
+    @FXML private Label lblHeaderUserName;
+    @FXML private Label lblHeaderUserRole;
+    @FXML private javafx.scene.control.TextField tfGlobalSearch;
 
     private HBox currentActiveItem;
 
     @FXML
     private void initialize() {
+        if (lblHeaderTitle != null) {
+            lblHeaderTitle.setText("Bảng điều khiển");
+        }
+        com.example.model.UserContext userContext =
+                com.example.model.UserContext.getInstance();
+
+        if (lblHeaderUserName != null) {
+            String username = userContext.getUsername();
+            lblHeaderUserName.setText(
+                    username != null && !username.isBlank()
+                            ? username
+                            : "Người dùng"
+            );
+        }
+
+        if (lblHeaderUserRole != null
+                && userContext.getRole() != null) {
+            lblHeaderUserRole.setText(
+                    userContext.getRole().toVietnamese()
+            );
+        }
         setItemText(
                 btnAppointment,
                 "Danh sách khám trong ngày"
@@ -97,9 +121,10 @@ public class MenuController {
         );
 
         btnLogout.setOnMouseClicked(event ->
-                NavigationHelper.switchTo(
-                        "/views/login.fxml"
-                )
+                {
+                    com.example.model.UserContext.getInstance().clear();
+                    NavigationHelper.switchTo("/views/login.fxml");
+                }
         );
 
         openDashboard();
@@ -136,6 +161,7 @@ public class MenuController {
 
             contentArea.getChildren().setAll(dashboard);
             setMenuActive(btnDashboard);
+            if (lblHeaderTitle != null) lblHeaderTitle.setText("Bảng điều khiển");
 
         } catch (Exception exception) {
             showLoadError(
@@ -161,6 +187,7 @@ public class MenuController {
 
             contentArea.getChildren().setAll(view);
             setMenuActive(btnAppointment);
+            if (lblHeaderTitle != null) lblHeaderTitle.setText("Danh sách khám trong ngày");
 
         } catch (Exception exception) {
             showLoadError(
@@ -181,6 +208,7 @@ public class MenuController {
             );
             contentArea.getChildren().setAll(view);
             setMenuActive(btnPatients);
+            if (lblHeaderTitle != null) lblHeaderTitle.setText("Danh sách bệnh nhân");
         } catch (Exception exception) {
             showLoadError(btnPatients, "Danh sách bệnh nhân", exception);
         }
@@ -192,6 +220,7 @@ public class MenuController {
             Parent view = loader.load();
             contentArea.getChildren().setAll(view);
             setMenuActive(menuItem);
+            if (lblHeaderTitle != null) lblHeaderTitle.setText(title);
         } catch (Exception exception) {
             showLoadError(menuItem, title, exception);
         }

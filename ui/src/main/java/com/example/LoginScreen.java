@@ -30,7 +30,10 @@ public class LoginScreen extends Application {
 
         Scene scene = new Scene(root);
 
-        stage.setTitle("Quản lý phòng mạch tư — Demo giao diện");
+        stage.setTitle("MediCare+ — Hệ thống Quản lý Phòng Mạch Tư");
+        try {
+            stage.getIcons().add(new javafx.scene.image.Image(getClass().getResourceAsStream("/assets/logo.png")));
+        } catch (Exception ignored) {}
         stage.setScene(scene);
         stage.setResizable(true);
         stage.centerOnScreen();
