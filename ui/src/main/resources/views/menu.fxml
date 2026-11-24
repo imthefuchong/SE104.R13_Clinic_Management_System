@@ -17,28 +17,37 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.controllers.MenuController">
 
-    <!-- SIDEBAR BÊN TRÁI CHUẨN PDF -->
+    <!-- SIDEBAR BÊN TRÁI ĐỒNG BỘ BẢNG MÀU & ICON & TÊN ỨNG DỤNG -->
     <left>
-        <VBox alignment="TOP_CENTER" prefWidth="230.0" spacing="0"
+        <VBox alignment="TOP_CENTER" prefWidth="245.0" spacing="0"
               styleClass="sidebar-container"
               stylesheets="@../CSS/menu-style.css">
 
-            <!-- Logo Trái Tim Chuẩn PDF -->
-            <HBox alignment="CENTER" prefHeight="65.0">
+            <!-- Brand & Tên ứng dụng ở đầu Sidebar -->
+            <HBox alignment="CENTER_LEFT" spacing="12" prefHeight="70.0">
                 <padding>
-                    <Insets bottom="6.0" top="10.0" />
+                    <Insets bottom="8.0" left="16.0" right="14.0" top="12.0" />
                 </padding>
-                <ImageView fx:id="logoImage" fitHeight="42.0" fitWidth="42.0" preserveRatio="true">
+                <ImageView fx:id="logoImage" fitHeight="38.0" fitWidth="38.0" preserveRatio="true">
                     <image>
                         <Image url="@/assets/logo.png" />
                     </image>
                 </ImageView>
+                <VBox alignment="CENTER_LEFT" spacing="2">
+                    <Label text="MEDICARE+"
+                           style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1B5E20; -fx-letter-spacing: 0.8px;" />
+                    <Label text="Hệ thống Quản lý Phòng khám"
+                           style="-fx-font-size: 11px; -fx-text-fill: #64748B;" />
+                </VBox>
             </HBox>
 
-            <!-- DANH SÁCH MENU ITEMS -->
-            <VBox fx:id="menuItems" spacing="6" VBox.vgrow="ALWAYS">
+            <!-- Đường phân cách nhẹ dưới logo -->
+            <Region prefHeight="1" style="-fx-background-color: #E2E8F0;" />
+
+            <!-- DANH SÁCH MENU ITEMS ĐỒNG BỘ ICON & BẢNG MÀU -->
+            <VBox fx:id="menuItems" spacing="5" VBox.vgrow="ALWAYS">
                 <padding>
-                    <Insets left="14.0" right="14.0" top="6.0" />
+                    <Insets left="12.0" right="12.0" top="10.0" />
                 </padding>
 
                 <!-- 1. Bảng điều khiển -->
@@ -57,7 +66,7 @@
                     <Label text="Danh sách khám trong ngày" />
                 </HBox>
 
-                <!-- 3. Tra cứu danh sách khám -->
+                <!-- 3. Tra cứu lịch sử khám -->
                 <HBox fx:id="btnMedicalReport" styleClass="menu-item">
                     <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
                         <image><Image url="@/assets/medical-report-icon.png" /></image>
@@ -133,7 +142,7 @@
             <!-- ĐĂNG XUẤT Ở ĐÁY SIDEBAR -->
             <VBox alignment="BOTTOM_CENTER">
                 <padding>
-                    <Insets bottom="16.0" left="14.0" right="14.0" top="10.0" />
+                    <Insets bottom="16.0" left="12.0" right="12.0" top="10.0" />
                 </padding>
                 <HBox fx:id="btnLogout" styleClass="signout-item">
                     <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
@@ -145,38 +154,61 @@
         </VBox>
     </left>
 
-    <!-- CONTENT VỚI TOP SEARCH BAR CHUẨN PDF -->
+    <!-- CONTENT VỚI HEADER ĐỒNG BỘ: TÊN ỨNG DỤNG, BREADCRUMB, TÌM KIẾM, PROFILE -->
     <center>
         <VBox spacing="0" style="-fx-background-color: #EDF4F1;" VBox.vgrow="ALWAYS">
-            <!-- Thanh Header trên cùng -->
-            <HBox alignment="CENTER_LEFT" spacing="16">
+            <!-- Thanh Header trên cùng đồng bộ bảng màu & icon & tên ứng dụng -->
+            <HBox alignment="CENTER_LEFT" spacing="16"
+                  style="-fx-background-color: #FFFFFF; -fx-border-color: transparent transparent #E2E8F0 transparent; -fx-border-width: 1;">
                 <padding>
-                    <Insets bottom="10.0" left="20.0" right="20.0" top="14.0" />
+                    <Insets bottom="12.0" left="22.0" right="22.0" top="12.0" />
                 </padding>
 
-                <!-- Thanh tìm kiếm kiểu Pill -->
-                <HBox alignment="CENTER_LEFT" maxWidth="600.0" spacing="8" styleClass="pill-search-container" HBox.hgrow="ALWAYS">
+                <!-- Tên phân hệ & Tên ứng dụng ở đầu trang -->
+                <VBox alignment="CENTER_LEFT" spacing="2" minWidth="220">
+                    <Label fx:id="lblHeaderTitle" text="Bảng điều khiển"
+                           style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #1B4D3E;" />
+                    <Label text="MediCare+ — Clinic Management"
+                           style="-fx-font-size: 11.5px; -fx-text-fill: #64748B;" />
+                </VBox>
+
+                <!-- Thanh tìm kiếm kiểu Pill chuẩn màu mint -->
+                <HBox alignment="CENTER_LEFT" maxWidth="480.0" spacing="10" styleClass="pill-search-container" HBox.hgrow="ALWAYS">
                     <ImageView fitHeight="16" fitWidth="16" opacity="0.6" preserveRatio="true">
                         <image><Image url="@/assets/loupe.png" /></image>
                     </ImageView>
-                    <TextField promptText="Tìm kiếm..." styleClass="pill-search-field" HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="tfGlobalSearch" promptText="Tìm kiếm nhanh thông tin..." styleClass="pill-search-field" HBox.hgrow="ALWAYS" />
                 </HBox>
 
                 <Region HBox.hgrow="ALWAYS" />
 
-                <!-- Logo Trái Tim góc phải nhỏ xinh -->
-                <StackPane prefHeight="36.0" prefWidth="36.0"
-                           style="-fx-background-color: #FFFFFF; -fx-background-radius: 18; -fx-border-color: #CBD5E1; -fx-border-radius: 18; -fx-border-width: 1;">
-                    <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
-                        <image><Image url="@/assets/logo.png" /></image>
-                    </ImageView>
-                </StackPane>
+                <!-- Khối User Profile đồng bộ góc phải (gọn gàng, sạch sẽ) -->
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <!-- Avatar + Tên bác sĩ/nhân viên + Trạng thái hoạt động -->
+                    <HBox alignment="CENTER_LEFT" spacing="10"
+                          style="-fx-background-color: #F8FAFC; -fx-background-radius: 22; -fx-border-color: #DCEDC8; -fx-border-radius: 22; -fx-border-width: 1.2; -fx-padding: 4 14 4 6;">
+                        <StackPane>
+                            <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                                <image><Image url="@/assets/nurse-icon.png" /></image>
+                            </ImageView>
+                        </StackPane>
+                        <VBox alignment="CENTER_LEFT" spacing="1">
+                            <Label fx:id="lblHeaderUserName" text="BS. Nguyễn Văn A"
+                                   style="-fx-font-size: 12.5px; -fx-font-weight: bold; -fx-text-fill: #1E293B;" />
+                            <HBox alignment="CENTER_LEFT" spacing="4">
+                                <Label style="-fx-text-fill: #10B981; -fx-font-size: 9px;" text="●" />
+                                <Label fx:id="lblHeaderUserRole" text="Bác sĩ điều trị"
+                                       style="-fx-font-size: 10.5px; -fx-text-fill: #2E7D32;" />
+                            </HBox>
+                        </VBox>
+                    </HBox>
+                </HBox>
             </HBox>
 
             <!-- Vùng hiển thị màn hình con -->
             <StackPane fx:id="contentArea" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                 <padding>
-                    <Insets bottom="16.0" left="20.0" right="20.0" top="4.0" />
+                    <Insets bottom="16.0" left="20.0" right="20.0" top="14.0" />
                 </padding>
             </StackPane>
         </VBox>
